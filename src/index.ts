@@ -33,6 +33,7 @@ import MazeModule from './modules/maze';
 import ChartModule from './modules/chart';
 import SleepReportModule from './modules/sleep-report';
 import NotingModule from './modules/noting';
+import Moderation from './modules/moderation';
 // import PollModule from './modules/poll';
 import ReminderModule from './modules/reminder';
 import earthquake from './modules/earthquake';
@@ -98,6 +99,7 @@ promiseRetry(retry => {
 		new menuModule(),
 		new GetColorModule(),
 		new earthquake(),
+		new Moderation(),
 	]);
 }).catch(e => {
 	log(chalk.red('Failed to fetch the account'));
