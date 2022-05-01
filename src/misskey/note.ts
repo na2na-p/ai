@@ -1,5 +1,6 @@
 export type Note = {
 	id: string;
+	createdAt: Date;
 	text: string | null;
 	reply: any | null;
 	visibility: 'public' | 'home' | 'followers' | 'specified';
