@@ -51,7 +51,7 @@ export default class extends Module {
     };
 
     // 最初の投稿から30秒以内に、note.user.idが同一のものを5回以上投稿した場合に、react(':kora:')をする
-		// watchNoteLatestに同じuserIdがあった場合、countを+1する
+		// watchNoteLatestに同じuserIdがあり、watchNoteFirstRecord.createdAtと比較して30秒以内であれば、countを+1する
 		// countが5以上になったらreact(':kora:')をし、該当userIdを持つwatchNoteFirstRecordとwatchNoteLatestを削除する
 		// watchNoteFirstRecordに該当のuserIdがない場合、watchNoteFirstRecordとwatchNoteLatestを作成する
 		if (!this.watchNoteFirstRecord.findOne({ userId: note.user.id })) {
