@@ -24,19 +24,23 @@ async function fetchChatGPT({prompt}: {prompt: string}): Promise<string> {
 		prompt,
 	};
 
-	const response = await fetch(COMPLETION_ENDPOINT, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			'Authorization': `Bearer ${config.openAiApiKey}`,
-		},
-		body: JSON.stringify(options),
-	});
+	try {
+		const response = await fetch(COMPLETION_ENDPOINT, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${config.openAiApiKey}`,
+			},
+			body: JSON.stringify(options),
+		});
 
-	const results = await response.json();
-	// results.choicesの中からランダムに返す
-	const randomIndex = Math.floor(Math.random() * results.choices.length);
-	return results.choices[randomIndex].text;
+		const results = await response.json();
+		// results.choicesの中からランダムに返す
+		const randomIndex = Math.floor(Math.random() * results.choices.length);
+		return results.choices[randomIndex].text;
+	} catch (e) {
+		return e.message;
+	}
 }
 
 export default fetchChatGPT;
