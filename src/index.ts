@@ -27,7 +27,8 @@ import WelcomeModule from './modules/welcome';
 import TimerModule from './modules/timer';
 import DiceModule from './modules/dice';
 import ServerModule from './modules/server';
-import FollowModule from './modules/follow';
+// import FollowModule from './modules/follow';
+import DlsiteModule from './modules/dlsite';
 import ValentineModule from './modules/valentine';
 import MazeModule from './modules/maze';
 import ChartModule from './modules/chart';
@@ -85,6 +86,7 @@ promiseRetry((retry) => {
 		new DiceModule(),
 		new TalkModule(),
 		new PingModule(),
+		new DlsiteModule(),
 		new WelcomeModule(),
 		new ServerModule(),
 		// new FollowModule(),
