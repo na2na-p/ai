@@ -76,8 +76,7 @@ export default class extends Module {
 		}
 		const serifs: string[] = ['買おうね、押したらカートに突っ込むよ'];
 		dlsite.forEach((item) => {
-			// HACK: MFMのエスケープあれば不要になる
-			serifs.push(`[${item.title?.replace('[', '').replace(']', '') ?? item.id}](${DLSITE_CART_URI_BASE}${item.id})`);
+			serifs.push(`[${item.title?.replace('[', '<plain>[</plain>').replace(']', '<plain>]</plain>') ?? item.id}](${DLSITE_CART_URI_BASE}${item.id})`);
 		});
 		this.react(':dlsite:', noteId, true);
 		this.createReply(noteId, serifs.join(`
