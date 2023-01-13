@@ -45,6 +45,10 @@ export default class extends Module {
 			return await react(':erait:');
 		}
 
+		if (note.text.match('static')) {
+			return await react(':static_polarbear:');
+		}
+
 		if (includes(note.text, ['いい']) && (includes(note.text, ['?']) || includes(note.text, ['？']))) {
 			// 50%の確率で":dame:"または":yattare:"を返す
 			if (Math.random() < 0.5) {
