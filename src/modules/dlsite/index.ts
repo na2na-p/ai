@@ -40,6 +40,7 @@ export default class extends Module {
 		const dlsite: PromiseType<ReturnType<typeof dlsiteParse>> = [];
 		dlsite.push(...(await dlsiteParse(msg.text)) ?? []);
 		if (msg.quoteId == null) {
+			if (dlsite.length === 0) return false;
 			this.response(dlsite, msg.id);
 			return true;
 		};
